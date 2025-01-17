@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISRO Facts</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.app.goo.gl/uTJ8TCxmSkFDAtDL7'); /* Replace with the URL of your space image */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        #app {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        #app:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #e9ecef;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #d1e7dd;
+        }
+
+        li h2 {
+            margin: 0 0 10px;
+            color: #0056b3;
+        }
+
+        li p {
+            margin: 0;
+            color: #555;
+        }
+
+        button {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Facts about ISRO</h1>
+        <ul id="facts-list"></ul>
+        <button id="replace-facts">Replace Facts</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const initialFacts = [
+                {
+                    "title": "Establishment",
+                    "description": "ISRO was founded on August 15, 1969, with the vision of harnessing space technology for national development while pursuing space science research and planetary exploration."
+                },
+                {
+                    "title": "First Satellite",
+                    "description": "ISRO's first satellite, Aryabhata, was launched on April 19, 1975, from the Soviet Union. It marked India's entry into the space age."
+                },
+                {
+                    "title": "Launch Vehicles",
+                    "description": "ISRO has developed several launch vehicles, including the Polar Satellite Launch Vehicle (PSLV) and the Geosynchronous Satellite Launch Vehicle (GSLV), which are used to deploy satellites into various orbits."
+                }
+            ];
+
+            const newFacts = [
+                {
+                    "title": "Chandrayaan Missions",
+                    "description": "Chandrayaan-1, launched in 2008, was India's first mission to the Moon and helped confirm the presence of water molecules on the lunar surface. Chandrayaan-2, launched in 2019, aimed to explore the Moon's south pole."
+                },
+                {
+                    "title": "Mars Orbiter Mission (Mangalyaan)",
+                    "description": "Launched in 2013, Mangalyaan made India the first Asian nation to reach Martian orbit and the first nation in the world to do so on its first attempt."
+                },
+                {
+                    "title": "Cost-Effective Missions",
+                    "description": "ISRO is known for its cost-effective space missions. The Mars Orbiter Mission, for example, cost only about $74 million, making it one of the most affordable Mars missions."
+                }
+            ];
+
+            const factsList = document.getElementById('facts-list');
+            const replaceButton = document.getElementById('replace-facts');
+
+            function displayFacts(facts) {
+                factsList.innerHTML = '';
+                facts.forEach(fact => {
+                    const listItem = document.createElement('li');
+                    const title = document.createElement('h2');
+                    const description = document.createElement('p');
+
+                    title.textContent = fact.title;
+                    description.textContent = fact.description;
+
+                    listItem.appendChild(title);
+                    listItem.appendChild(description);
+                    factsList.appendChild(listItem);
+                });
+            }
+
+            // Display initial facts
+            displayFacts(initialFacts);
+
+            // Replace facts on button click
+            replaceButton.addEventListener('click', function() {
+                displayFacts(newFacts);
+            });
+        });
+    </script>
+</body>
+</html>
